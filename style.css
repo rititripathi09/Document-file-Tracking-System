@@ -1,0 +1,6 @@
+body{display: flex; flex-direction: column; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: large;}
+main{min-height: 90%;}
+h2{padding-top: 0px; margin-top: 0px;}
+div.content{ margin: auto; min-width: 50%; border: 1px solid black; padding: 10px;}
+form{display: grid; grid-template-columns: auto auto; gap: 5px 40px;}
+button{grid-column: 2;}

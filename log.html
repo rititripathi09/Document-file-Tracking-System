@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename=style)}}">
+    <script src="{{url_for('static', filename=script)}}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <h2>Document Log</h2>
+            {% for log in logs %}
+            <p>
+                <span><b>{{log['id']}}</b><span>
+                <span>Document: <b>{{log['file']}}</b></span>
+                <span>Old: <b>{{log['old']}}</b></span>
+                <span>Updated: <b>{{log['new']}}</b></span>
+                <span>Time: <b>{{log['time']}}</b></span>
+                <span>File Attachment: <b><a href="/file/{{log['attachment']}}">Download File</a></b></span>
+                </p>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <nav>
+            <a href="/dashboard">Back</a>
+        </nav>
+    </footer>
+</body>
+</html>

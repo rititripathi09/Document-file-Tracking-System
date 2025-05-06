@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename=style)}}">
+    <script src="{{url_for('static', filename=script)}}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <h2>Received Documents</h2>
+            {% for file in files %}
+            <div>
+                <p>Sender: <b>{{file['name']}} ( <a href="{{url_for('dashboard')}}/{{file['id']}}">Log</a> )</b></p>
+                <p>Phone: <b>{{file['phone']}}</b></p>
+                <p>eMail: <b>{{file['email']}}</b></p>
+                <p>Notes: <b>{{file['notes']}}</b></p>
+                <p>Department: <b>{{file['department']}}</b></p>
+                <p>File Attachment: <b><a href="/file/{{file['file']}}">Download File</a></b></p>
+                <form action="{{url_for('dashboard')}}/{{file['id']}}" method="post">
+                    <select name="department">
+                        {% for department in departments %}
+                        <option value="{{department['id']}}">{{department['name']}}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit">Forward Document</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <nav>
+            <a href="/dashboard">Logout</a>
+        </nav>
+    </footer>
+</body>
+</html>

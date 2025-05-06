@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename=style)}}">
+    <script src="{{url_for('static', filename=script)}}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <h2>Document Upload</h2>
+            <p>Document was stored sucessfully</p>
+            <a href="{{file}}">Download File</a>
+        </div>
+    </main>
+    <footer>
+        <nav>
+            <a href="/dashboard">Staff Dashboard</a>
+        </nav>
+    </footer>
+</body>
+</html>
